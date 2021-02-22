@@ -19,7 +19,9 @@ class Histogram(dict):
 #lebo shared v tej časti ešte nie je locknutý a dá sa k nemu pristúpiť. Tým pádom jedno vlákno
 #môže vyhodnotiť podmienku ako nesplnenú, pričom druhé zatiaľ inkrementuje index a tým môže prísť
 #k tomu, že sa dostaneme za hranicu poľa a preto podmienka nám túto výnimku pri paralelnom programovaní
-#nemusí odchytiť. A presne to sa mi aj stávalo, takmer v každom volaní funkcie counter prišlo k out of range 
+#nemusí odchytiť. A presne to sa mi aj stávalo, takmer v každom volaní funkcie counter prišlo k out of range exception
+
+#Dve ďalšie riešenia aj vaic k nim sú v druhom súbore
 
 def counter(shared):
     while True:
