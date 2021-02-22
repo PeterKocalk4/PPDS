@@ -14,8 +14,8 @@ class Histogram(dict):
         for item in seq:
             self[item] = self.get(item, 0) + 1
 
-#V tomto súbore su dve riešenia. Prvé je to, ako kód teraz funguje a druhé dostanem tak, že zakomentujem súčasný lock-unlock (riadky 35 a 46) lockujúci celý while-cyklus a 
-#odkomentujem zakomentovaný (1 lock a na 2 miestach unlock)
+#V tomto súbore su dve riešenia. Prvé je to, ako kód teraz funguje a druhé dostanem tak, že zakomentujem súčasný lock-unlock (riadky 38 a 47) lockujúci celý while-cyklus a 
+#odkomentujem zakomentovaný (riadky 40, 42 a 46). Unlock musí byť na dvoch miestach, aby sa v každej vetve if-u na konci shared unlocklo a nedošlo tak k deadlocku
 
 #Pri prvom riešení prebehol chod programu bez chýb a výstup bol správny - samé jednotky. Bolo to súčasne aj najrýchlejším riešením so správnym výstupom, aké som objavil.
 #Najrýchlejším je zrejme pre to, že k zamknutiu a odomknutiu zámku dochádza len raz pri každom zavolaní funkcie counter. Z pohľadu paralelného programovania si myslím, že nejde
